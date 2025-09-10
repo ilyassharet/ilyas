@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SunIcon, MoonIcon, InfoIcon } from './icons';
+import { SunIcon, MoonIcon, InfoIcon, ClearIcon } from './icons';
 
 interface HeaderProps {
   onDomainSubmit: (domain: string) => void;
@@ -29,7 +29,7 @@ const sanitizeDomain = (domain: string): string => {
   }
 };
 
-const Header = ({ onDomainSubmit, theme, toggleTheme, ref }: HeaderProps & { ref?: React.Ref<HTMLInputElement> }) => {
+const Header = forwardRef<HTMLInputElement, HeaderProps>(({ onDomainSubmit, theme, toggleTheme }, ref) => {
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState<string>('');
 
@@ -158,7 +158,7 @@ const Header = ({ onDomainSubmit, theme, toggleTheme, ref }: HeaderProps & { ref
       <div className="text-center">
         <p className="text-base md:text-lg text-light-text-secondary dark:text-dark-text-secondary mb-8 max-w-2xl mx-auto">
           Enter a domain to access a suite of powerful research tools instantly.
-        p>
+        </p>
         <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto flex flex-col items-center">
           <div className="flex w-full">
             <div className="relative w-full">
@@ -179,9 +179,7 @@ const Header = ({ onDomainSubmit, theme, toggleTheme, ref }: HeaderProps & { ref
                     className="absolute inset-y-0 right-0 flex items-center pr-4 text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors focus:outline-none"
                     aria-label="Clear input"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <ClearIcon className="h-6 w-6" />
                   </button>
                 )}
             </div>
@@ -201,6 +199,6 @@ const Header = ({ onDomainSubmit, theme, toggleTheme, ref }: HeaderProps & { ref
       </div>
     </header>
   );
-};
+});
 
 export default Header;

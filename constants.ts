@@ -254,8 +254,9 @@ export const TOOLS: Tool[] = [
     id: 'freetrademarks',
     title: 'FreeTrademarks.net',
     description: 'Free trademark lookup.',
-    urlTemplate: 'https://www.freetrademarks.net/search/{{DOMAIN}}',
+    urlTemplate: 'https://www.freetrademarks.net/search/{{DOMAIN_NAME}}',
     Icon: TrademarkIcon,
+    urlType: 'domain_name',
     category: 'Trademark',
   },
   {
