@@ -141,39 +141,37 @@ const Dashboard: React.FC<DashboardProps> = ({ domain, activeTab, onTabChange, f
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
-        <div className="flex-grow">
-          <Navbar
-            categories={CATEGORIES}
-            activeTab={activeTab}
-            onTabChange={onTabChange}
-          />
-        </div>
-        <div className="flex items-center space-x-2 sm:pl-4 mt-4 sm:mt-0">
-            <span className="text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary whitespace-nowrap">
-              Multi-Open
-            </span>
-            <button
-              onClick={handleToggleMultiOpen}
-              role="switch"
-              aria-checked={isMultiOpen}
-              title={isMultiOpen ? 'Disable Multi-Open' : 'Enable Multi-Open'}
-              className={`${
-                isMultiOpen ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-600'
-              } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-dark-bg`}
-            >
-              <span
-                className={`${
-                  isMultiOpen ? 'translate-x-6' : 'translate-x-1'
-                } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
-              />
-            </button>
-          </div>
+      <div className="mb-4">
+        <Navbar
+          categories={CATEGORIES}
+          activeTab={activeTab}
+          onTabChange={onTabChange}
+        />
       </div>
       
-      {/* Centered controls container */}
-      <div className="flex justify-center items-center gap-4 my-4 min-h-[36px]">
-        {/* Select/Deselect All button - shown on all tabs when multi-open is active */}
+      {/* Centered controls for multi-open and select-all */}
+      <div className="flex justify-center items-center gap-4 my-4 min-h-[40px]">
+        <div className="flex items-center space-x-2">
+          <span className="text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary whitespace-nowrap">
+            Multi-Open
+          </span>
+          <button
+            onClick={handleToggleMultiOpen}
+            role="switch"
+            aria-checked={isMultiOpen}
+            title={isMultiOpen ? 'Disable Multi-Open' : 'Enable Multi-Open'}
+            className={`${
+              isMultiOpen ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-600'
+            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-dark-bg`}
+          >
+            <span
+              className={`${
+                isMultiOpen ? 'translate-x-6' : 'translate-x-1'
+              } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+            />
+          </button>
+        </div>
+        
         {isMultiOpen && filteredTools.length > 0 && (
           <div className="animate-fade-in">
             <button
