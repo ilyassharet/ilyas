@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23f57200'/%3E%3Ccircle cx='14' cy='14' r='7' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cline x1='19' y1='19' x2='25' y2='25' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domain Research Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #f57200; /* Light Mode: Orange */
+      }
+      .dark {
+        --primary-color: #00ADB5; /* Dark Mode: Teal */
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              'input-strong': ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // Primary color for buttons, links, and highlights using a CSS variable
+              primary: 'var(--primary-color)',
+              
+              // Light Mode Colors
+              'light-bg': '#F9FAFB', // Very light gray for background
+              'light-card': '#FFFFFF', // White for cards
+              'light-text-primary': '#111827', // Almost black for main text
+              'light-text-secondary': '#6B7280', // Medium gray for secondary text
+              'light-border': '#E5E7EB', // Light gray for borders
+
+              // Dark Mode Colors
+              'dark-bg': '#111827', // Dark gray-blue for background
+              'dark-card': '#1F2937', // Lighter gray-blue for cards
+              'dark-text-primary': '#F9FAFB', // Very light gray for main text
+              'dark-text-secondary': '#9CA3AF', // Lighter gray for secondary text
+              'dark-border': '#374151', // Medium gray for borders
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^6.25.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
